@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+    user-select: none;
+    background-color:black;
+    box-sizing:border-box;
+    position:absolute;
+    width:100%;
+    height:100%;
+    margin:0px;
+    display:block;
+}
+
+#pausebutton {
+    height: 65px;
+    width: 65px;
+    background-color:black;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:25px;
+    margin-bottom:25px;
+    transition:0.1s;
+    overflow:hidden;
+
+    background-image:url("images/play.png");
+    background-size:100% 100%;
+}
+
+/*
+@media (min-height: 800px) {
+    #pause {
+        top:100px;
+    }
+}*/
+
+.container {
+    background-color:black;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    top:50%;
+    left:50%;
+    width:95%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/*
+
+---- ICONS SECTION ----
+
+*/
+
+.iconboard {
+    height:100%;
+    width:65px;
+    background-color:black;
+}
+
+.iconboard > #counticon {
+    height:25px;
+    width:100%;
+    background-color:black;
+    margin:2px 0px;
+}
+
+.iconboard > #haticon {
+    user-select: none;
+    height:65px;
+    width:100%;
+    background-color:black;
+    margin:2px 0px;
+    background-image:url("images/hihat.png");
+    background-size:100% 100%;
+}
+
+.iconboard > #snareicon {
+    user-select: none;
+    height:65px;
+    width:100%;
+    background-color:black;
+    margin:2px 0px;
+    background-image:url("images/snare.png");
+    background-size:100% 100%;
+}
+
+.iconboard > #kickicon {
+    user-select: none;
+    height:65px;
+    width:100%;
+    background-color:black;
+    margin:2px 0px;
+    background-image:url("images/kick.png");
+    background-size:100% 100%;
+}
+
+.iconboard > #openhaticon {
+    user-select: none;
+    height:65px;
+    width:100%;
+    background-color:black;
+    margin:2px 0px;
+    background-image:url("images/openhat.png");
+    background-size:100% 100%;
+}
+
+.iconboard > #percicon {
+    user-select: none;
+    height:65px;
+    width:100%;
+    background-color:black;
+    margin:2px 0px;
+    background-image:url("images/perc.png");
+    background-size:100% 100%;
+}
+
+.iconboard > #clapicon {
+    user-select: none;
+    height:65px;
+    width:100%;
+    background-color:black;
+    margin:2px 0px;
+    background-image:url("images/clap.png");
+    background-size:100% 100%;
+}
+
+.iconboard > #extraicon {
+    user-select: none;
+    height:65px;
+    width:100%;
+    background-color:black;
+    margin:2px 0px;
+    background-image:url("images/extra.png");
+    background-size:100% 100%;
+}
+
+/*
+
+---- OPTIONS SECTION ----
+
+*/
+
+.optionboard {
+    display:block;
+    height:100%;
+    width:10%;
+    background-color:black;
+    transition:0.2s;
+}
+
+.optionsection {
+    width:100%;
+    height:65px;
+    margin:2px 0px;
+    display:flex;
+}
+
+.optionfill {
+    width:1000px;
+    border:1px solid black;
+    background-color:lightgrey;
+    transition:0.2s;
+}
+
+.optionfill:hover {
+    background-color:grey;
+}
+
+.optionerase {
+    width:1000px;
+    border:1px solid black;
+    background-color:darkgrey;
+    transition:0.2s;
+}
+
+.optionerase:hover {
+    background-color:grey;
+}
+
+#countoption {
+    min-height:25px;
+    min-width:100%;
+    background-color:black;
+    margin:2px 0px;
+}
+
+/*
+
+---- MUSIC SECTION ----
+
+*/
+
+.musicboard {
+    display:block;
+    width:80%;
+    margin:0px 2px;
+}
+
+#countrow {
+    width:100%;
+    height:25px;
+    margin:2px 0px;
+    display:flex;
+}
+
+.countbutton {
+    width:1000px;
+    border:1px solid black;
+    background-color:grey;
+}
+
+.drumbuttonrow {
+    width:100%;
+    height:65px;
+    margin:2px 0px;
+    display:flex;
+}
+
+.drumbutton {
+    user-select: none;
+    width:1000px;
+    border:1px inset black;
+    background-color:grey;
+    transition: 0.1s;
+}
+
+/*
+
+---- DROPDOWN/BPM SLIDER ----
+
+*/
+
+.bpmcontainer {
+    box-sizing:border-box;
+    margin-top:25px;
+    margin-bottom:25px;
+    display:flex;
+    width:75%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.bpmcontainercol {
+    width:66%;
+    margin-left:auto;
+    display:flex;
+}
+
+#kitmenu {
+    -webkit-appearance:none;
+    appearance:none;
+    -webkit-user-select: none;
+    user-select: none;
+    font-size:20px;
+    font-family:'Roboto',sans-serif;
+    color:lightgrey;
+    border:2px solid grey;
+    height:30px;
+    width:25%;
+    padding-left:5px;
+    filter:grayscale(1);
+    background:url("images/icon.png") 95% / 20% no-repeat black;
+    margin-left:auto;
+    margin-right:auto;
+    outline:none;
+
+}
+
+.slider {
+    box-sizing: border-box;
+    height:26px;
+    appearance:none;
+    background-color:black;
+    border:2px solid grey;
+    width:100%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.slider::-webkit-slider-thumb {
+    cursor:pointer;
+    background-color:pink;
+    appearance:none;
+    width:22px;
+    height:23px;
+    transition:0.1s;
+}
+
+.slider::-webkit-slider-thumb:hover {
+    border:2px inset rgba(0,0,0,0.5);
+}
+
+.slider::-moz-range-thumb {
+    cursor:pointer;
+    background-color:pink;
+    appearance:none;
+    border-radius:0px;
+    width:22px;
+    height:23px;
+}
+
+.slider::-moz-range-thumb:hover {
+    border:2px inset rgba(0,0,0,0);
+}
+
+.optionlabel {
+    box-sizing: border-box;
+    text-align: right;
+    font: 20px Roboto;
+    color:darkgrey;
+    user-select: none;
+    font-family:'Roboto',sans-serif;
+    white-space:nowrap;
+    width:auto;
+    padding-right:10px;
+    height:30px;
+}
+
+.bottom-bar {
+    position:absolute;
+    bottom:0;
+    margin:5px;
+    font: 16px Roboto;
+    color:rgba(255, 255, 255, 0.5);
+    user-select: none;
+}
+
+.bottom-bar > span > a {
+    color:rgba(255, 255, 255, 0.6);
+}
+
+.top-bar {
+    position:absolute;
+    top:0;
+    margin:5px;
+    font: 16px Roboto;
+    color:rgba(255, 255, 255, 0.5);
+    user-select: none;
+}
+
+.top-bar > span > a {
+    color:rgba(255, 255, 255, 0.6);
+}
