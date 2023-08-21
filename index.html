@@ -12,7 +12,7 @@
             <span>Tip: click and drag to make patterns faster!</span>
         </div>
 
-        <div id="pausebutton"></div>
+        <div id="pausebutton" title="Play"></div>
 
         <div class="container">
 
@@ -42,37 +42,43 @@
             <div class="optionboard">
                 <div id="countoption"></div>
                 <div class ="optionsection" id="hatoption">
-                    <div class="optionfill" id="hatfill"></div>
-                    <div class="optionerase" id="haterase"></div>
+                    <div class="optionfill" id="hatfill" title="Fill row"></div>
+                    <div class="optionerase" id="haterase" title="Erase row"></div>
                 </div>
                 <div class ="optionsection" id="snareoption">
-                    <div class="optionfill" id="snarefill"></div>
-                    <div class="optionerase" id="snareerase"></div>
+                    <div class="optionfill" id="snarefill" title="Fill row"></div>
+                    <div class="optionerase" id="snareerase" title="Erase row"></div>
                 </div>
                 <div class ="optionsection" id="kickoption">
-                    <div class="optionfill" id="kickfill"></div>
-                    <div class="optionerase" id="kickerase"></div>
+                    <div class="optionfill" id="kickfill" title="Fill row"></div>
+                    <div class="optionerase" id="kickerase" title="Erase row"></div>
                 </div>
                 <div class ="optionsection" id="openhatoption">
-                    <div class="optionfill" id="openhatfill"></div>
-                    <div class="optionerase" id="openhaterase"></div>
+                    <div class="optionfill" id="openhatfill" title="Fill row"></div>
+                    <div class="optionerase" id="openhaterase" title="Erase row"></div>
                 </div>
                 <div class ="optionsection" id="percoption">
-                    <div class="optionfill" id="percfill"></div>
-                    <div class="optionerase" id="percerase"></div>
+                    <div class="optionfill" id="percfill" title="Fill row"></div>
+                    <div class="optionerase" id="percerase" title="Erase row"></div>
                 </div>
                 <div class ="optionsection" id="clapoption">
-                    <div class="optionfill" id="clapfill"></div>
-                    <div class="optionerase" id="claperase"></div>
+                    <div class="optionfill" id="clapfill" title="Fill row"></div>
+                    <div class="optionerase" id="claperase" title="Erase row"></div>
                 </div>
                 <div class ="optionsection" id="extraoption">
-                    <div class="optionfill" id="extrafill"></div>
-                    <div class="optionerase" id="extraerase"></div>
+                    <div class="optionfill" id="extrafill" title="Fill row"></div>
+                    <div class="optionerase" id="extraerase" title="Erase row"></div>
                 </div>
             </div>
         </div>
 
-        <div class="bpmcontainer">
+        <div class="settingrow">
+            <div class="statebuttons" id="statebutton" title="Change to state B">
+                STATE: A
+            </div>
+        </div>
+
+        <div class="settingrow">
             <select id="kitmenu">
                 <option value="1539" selected>1539</option>
                 <option value="mach">mach</option>
@@ -82,14 +88,18 @@
             </select>
             <div class="bpmcontainercol">
                 <div style="width:25%">
-                    <div class="optionlabel" id="bpmlabel">154 BPM</div>
+                    <div class="sliderlabel" id="bpmlabel">154 BPM</div>
     
-                    <div class="optionlabel" id="swinglabel">0% swing</div>
+                    <div class="sliderlabel" id="swinglabel">0% swing</div>
+    
+                    <div class="sliderlabel" id="volumelabel">100% volume</div>
                 </div>
                 <div style="width:75%">
                     <input type="range" min="20" max="250" value="154" id="bpmslider" class="slider">
         
                     <input type="range" min="0" max="100" value="0" id="swingslider" class="slider">
+        
+                    <input type="range" min="0" max="100" value="100" id="volumeslider" class="slider">
                 </div>
             </div>
         </div>

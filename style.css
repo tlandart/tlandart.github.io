@@ -19,19 +19,11 @@ body {
     margin-right:auto;
     margin-top:25px;
     margin-bottom:25px;
-    transition:0.1s;
     overflow:hidden;
 
     background-image:url("images/play.png");
     background-size:100% 100%;
 }
-
-/*
-@media (min-height: 800px) {
-    #pause {
-        top:100px;
-    }
-}*/
 
 .container {
     background-color:black;
@@ -45,6 +37,32 @@ body {
     margin-right:auto;
 }
 
+.bottom-bar {
+    position:absolute;
+    bottom:0;
+    margin:5px;
+    font: 16px Roboto;
+    color:rgba(255, 255, 255, 0.5);
+    user-select: none;
+}
+
+.bottom-bar > span > a {
+    color:rgba(255, 255, 255, 0.6);
+}
+
+.top-bar {
+    position:absolute;
+    top:0;
+    margin:5px;
+    font: 16px Roboto;
+    color:rgba(255, 255, 255, 0.5);
+    user-select: none;
+}
+
+.top-bar > span > a {
+    color:rgba(255, 255, 255, 0.6);
+}
+
 /*
 
 ---- ICONS SECTION ----
@@ -54,13 +72,11 @@ body {
 .iconboard {
     height:100%;
     width:65px;
-    background-color:black;
 }
 
 .iconboard > #counticon {
     height:25px;
     width:100%;
-    background-color:black;
     margin:2px 0px;
 }
 
@@ -68,7 +84,6 @@ body {
     user-select: none;
     height:65px;
     width:100%;
-    background-color:black;
     margin:2px 0px;
     background-image:url("images/hihat.png");
     background-size:100% 100%;
@@ -78,7 +93,6 @@ body {
     user-select: none;
     height:65px;
     width:100%;
-    background-color:black;
     margin:2px 0px;
     background-image:url("images/snare.png");
     background-size:100% 100%;
@@ -88,7 +102,6 @@ body {
     user-select: none;
     height:65px;
     width:100%;
-    background-color:black;
     margin:2px 0px;
     background-image:url("images/kick.png");
     background-size:100% 100%;
@@ -98,7 +111,6 @@ body {
     user-select: none;
     height:65px;
     width:100%;
-    background-color:black;
     margin:2px 0px;
     background-image:url("images/openhat.png");
     background-size:100% 100%;
@@ -108,7 +120,6 @@ body {
     user-select: none;
     height:65px;
     width:100%;
-    background-color:black;
     margin:2px 0px;
     background-image:url("images/perc.png");
     background-size:100% 100%;
@@ -118,7 +129,6 @@ body {
     user-select: none;
     height:65px;
     width:100%;
-    background-color:black;
     margin:2px 0px;
     background-image:url("images/clap.png");
     background-size:100% 100%;
@@ -128,7 +138,6 @@ body {
     user-select: none;
     height:65px;
     width:100%;
-    background-color:black;
     margin:2px 0px;
     background-image:url("images/extra.png");
     background-size:100% 100%;
@@ -230,7 +239,7 @@ body {
 
 */
 
-.bpmcontainer {
+.settingrow {
     box-sizing:border-box;
     margin-top:25px;
     margin-bottom:25px;
@@ -303,7 +312,7 @@ body {
     border:2px inset rgba(0,0,0,0);
 }
 
-.optionlabel {
+.sliderlabel {
     box-sizing: border-box;
     text-align: right;
     font: 20px Roboto;
@@ -313,31 +322,33 @@ body {
     white-space:nowrap;
     width:auto;
     padding-right:10px;
-    height:30px;
+    height:32px;
+    line-height:32px;
 }
 
-.bottom-bar {
-    position:absolute;
-    bottom:0;
-    margin:5px;
-    font: 16px Roboto;
-    color:rgba(255, 255, 255, 0.5);
-    user-select: none;
+/*
+
+---- A/B LOAD ----
+
+*/
+
+.statebuttons {
+    box-sizing:border-box;
+    height:50px;
+    line-height:50px;
+    border:2px solid lightgrey;
+    background-color:black;
+    transition:0.2s;
+    text-align:center;
+    font: 35px Roboto;
+    color: lightgrey;
 }
 
-.bottom-bar > span > a {
-    color:rgba(255, 255, 255, 0.6);
+.statebuttons:hover {
+    background-color:rgb(56, 56, 56);
+    color:white;
 }
 
-.top-bar {
-    position:absolute;
-    top:0;
-    margin:5px;
-    font: 16px Roboto;
-    color:rgba(255, 255, 255, 0.5);
-    user-select: none;
-}
-
-.top-bar > span > a {
-    color:rgba(255, 255, 255, 0.6);
+#statebutton {
+    width:165px;
 }

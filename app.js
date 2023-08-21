@@ -56,6 +56,7 @@ function pauseFunction() {
     }
 
     pause.style.backgroundImage = paused ? "url('images/pause.png')" : "url('images/play.png')";
+    pause.title = paused ? "Pause" : "Play";
     paused = !paused;
 }
 
@@ -235,6 +236,78 @@ optionButtonEventAdder(extraFill, extraErase, extras);
 
 /*
 
+---- SET UP SAVE/LOAD STATE BUTTONS
+
+*/
+
+let currentState = true; // true = A, false = B
+let stateA = new Array(6);
+let stateB = new Array(6);
+
+for(let i=0; i<7; i++) {
+    stateA[i] = new Array(numButtons);
+    stateB[i] = new Array(numButtons);
+}
+for(let i=0; i<7; i++) {
+    for(let j=0; j<numButtons; j++) {
+        stateA[i][j] = false;
+        stateB[i][j] = false;
+    }
+}
+
+const stateButton = document.getElementById("statebutton");
+stateButton.addEventListener("mousedown", function() {
+    if(currentState === true) {
+        stateA = saveState();
+        stateButton.innerHTML = "STATE: B";
+        stateButton.title = "Change to state A";
+        loadState(stateB);
+    }
+    else {
+        stateB = saveState();
+        stateButton.innerHTML = "STATE: A";
+        stateButton.title = "Change to state B";
+        loadState(stateA);
+    }
+    currentState = !currentState;
+});
+
+// load the state given an array of booleans with the same dimensions as the button grid
+function loadState(state) {
+    for(let i=0; i<numButtons; i++) {
+        let rowsList = [hats, snares, kicks, openhats, percs, claps, extras];
+        let k = 0;
+        rowsList.forEach(function(row) {
+            if(state[k][i] == true)
+                visualSelect(row.item(i));
+            else
+                visualDeselect(row.item(i));
+            k++;
+        });
+    }
+}
+
+// return a 2d array of booleans with the same dimensions as the button grid corresponding to the current state
+function saveState() {
+    let newState = new Array(6);
+    for(let i=0; i<7; i++) {
+        newState[i] = new Array(numButtons);
+    }
+
+    for(let i=0; i<7; i++) {
+        for(let j=0; j<numButtons; j++) {
+            let rowsList = [hats, snares, kicks, openhats, percs, claps, extras];
+            if(rowsList[i].item(j).style.backgroundColor === selectedCol)
+                newState[i][j] = true;
+            else
+                newState[i][j] = false;
+        }
+    }
+    return newState;
+}
+
+/*
+
 ---- SET UP ALL THE SOUND STUFF ----
 
 */
@@ -271,7 +344,12 @@ async function setupSamples() {
 
 function playSample(audioContext, audioBuffer, time) {
     const sampleSource = new AudioBufferSourceNode(audioContext, {buffer: audioBuffer});
-    sampleSource.connect(audioContext.destination);
+
+    var gainNode = audioContext.createGain();
+    gainNode.gain.value = volumeslider.value / 100;
+    gainNode.connect(audioContext.destination);
+
+    sampleSource.connect(gainNode);
     sampleSource.start(time);
     return sampleSource;
 }
@@ -380,6 +458,13 @@ swingslider.oninput = function() {
     swing = (swingslider.value/100)*-BPMCALC;
     swinglabel.innerHTML = swingslider.value + "% swing";
     start();
+}
+
+let volumeslider = document.getElementById("volumeslider");
+let volumelabel = document.getElementById("volumelabel");
+
+volumeslider.oninput = function() {
+    volumelabel.innerHTML = volumeslider.value + "% volume";
 }
 
 /*
