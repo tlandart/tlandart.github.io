@@ -1,0 +1,27 @@
+#current_image_title {
+  padding-left: 15px;
+  padding-top: 10px;
+  text-align: left;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 2px;
+}
+
+#current_image_author {
+  padding-left: 15px;
+  text-align: left;
+  color: darkgray;
+}
+
+#current_image_panel_delete {
+  margin-top: 0px;
+}
+
+#image_form {
+  display: none;
+  flex-direction: column;
+}
+
+#image_form button {
+  margin-left: 15px;
+}

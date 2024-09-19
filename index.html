@@ -1,113 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>drumlooper</title>
-        <link rel="stylesheet" href="style.css"/>
-        <link rel="icon" type="image/png" href="images/icon.png">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
+  <head>
+    <meta charset="utf-8" />
+    <title>The Web Gallery</title>
+    <link href="style/main.css" rel="stylesheet" type="text/css" />
+    <link href="style/panel.css" rel="stylesheet" type="text/css" />
+    <link href="style/image.css" rel="stylesheet" type="text/css" />
+    <link href="style/comment.css" rel="stylesheet" type="text/css" />
+    <script type="module" src="js/index.mjs"></script>
+  </head>
+  <body>
+    <header>
+      <a href="/" id="title">The Web Gallery</a>
+    </header>
 
-        <div class="top-bar">
-            <span>Tip: click and drag to make patterns faster!</span>
-        </div>
+    <div class="panel">
+      <h1>Add an image</h1>
+      <button id="image_form_toggle">▼</button>
+      <form id="image_form">
+        <input
+          type="text"
+          placeholder="Enter title"
+          id="post_image_title"
+          name="image_title"
+          required
+        />
+        <input
+          type="text"
+          placeholder="Enter your name"
+          id="post_image_author"
+          name="image_author"
+          required
+        />
+        <input
+          type="url"
+          placeholder="Enter URL"
+          id="post_image_url"
+          name="image_url"
+          required
+        />
+        <button type="submit">Submit image</button>
+      </form>
+    </div>
 
-        <div id="pausebutton" title="Play"></div>
+    <div id="current_image_panel" class="panel">
+      <h1>Image Gallery</h1>
+      <div>
+        <button id="current_image_panel_left">◀ Newer</button>
+        <button id="current_image_panel_right">Older ▶</button>
+      </div>
+      <img src="media/squirrel.jpg" alt="squirrel" id="current_image" />
+      <div id="current_image_title">[Image title]</div>
+      <div id="current_image_author">by [Image author]</div>
+      <button id="current_image_panel_delete">Delete</button>
+    </div>
 
-        <div class="container">
+    <div id="comment_panel" class="panel">
+      <h1 id="comment_header">Comments</h1>
+      <form id="comment_form">
+        <input
+          type="text"
+          placeholder="Enter your name"
+          id="post_comment_author"
+          name="comment_author"
+          required
+        />
+        <input
+          type="text"
+          placeholder="Enter comment"
+          id="post_comment_content"
+          name="comment_content"
+          required
+        />
+        <button type="submit">Comment</button>
+      </form>
+      <div id="comment_list"></div>
+      <div>
+        <button id="comment_panel_newer">◀ Newer</button>
+        <button id="comment_panel_older">Older ▶</button>
+      </div>
+    </div>
 
-            <div class="iconboard">
-                <div id="counticon"></div>
-                <div id="haticon"></div>
-                <div id="snareicon"></div>
-                <div id="kickicon"></div>
-                <div id="openhaticon"></div>
-                <div id="percicon"></div>
-                <div id="clapicon"></div>
-                <div id="extraicon"></div>
-            </div>
-
-            <div class="musicboard">
-
-                <div id="countrow"></div>
-                <div id="hatrow" class="drumbuttonrow"></div>
-                <div id="snarerow" class="drumbuttonrow"></div>
-                <div id="kickrow" class="drumbuttonrow"></div>
-                <div id="openhatrow" class="drumbuttonrow"></div>
-                <div id="percrow" class="drumbuttonrow"></div>
-                <div id="claprow" class="drumbuttonrow"></div>
-                <div id="extrarow" class="drumbuttonrow"></div>
-            </div>
-
-            <div class="optionboard">
-                <div id="countoption"></div>
-                <div class ="optionsection" id="hatoption">
-                    <div class="optionfill" id="hatfill" title="Fill row"></div>
-                    <div class="optionerase" id="haterase" title="Erase row"></div>
-                </div>
-                <div class ="optionsection" id="snareoption">
-                    <div class="optionfill" id="snarefill" title="Fill row"></div>
-                    <div class="optionerase" id="snareerase" title="Erase row"></div>
-                </div>
-                <div class ="optionsection" id="kickoption">
-                    <div class="optionfill" id="kickfill" title="Fill row"></div>
-                    <div class="optionerase" id="kickerase" title="Erase row"></div>
-                </div>
-                <div class ="optionsection" id="openhatoption">
-                    <div class="optionfill" id="openhatfill" title="Fill row"></div>
-                    <div class="optionerase" id="openhaterase" title="Erase row"></div>
-                </div>
-                <div class ="optionsection" id="percoption">
-                    <div class="optionfill" id="percfill" title="Fill row"></div>
-                    <div class="optionerase" id="percerase" title="Erase row"></div>
-                </div>
-                <div class ="optionsection" id="clapoption">
-                    <div class="optionfill" id="clapfill" title="Fill row"></div>
-                    <div class="optionerase" id="claperase" title="Erase row"></div>
-                </div>
-                <div class ="optionsection" id="extraoption">
-                    <div class="optionfill" id="extrafill" title="Fill row"></div>
-                    <div class="optionerase" id="extraerase" title="Erase row"></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="settingrow">
-            <div class="statebuttons" id="statebutton" title="Change to state B">
-                STATE: A
-            </div>
-        </div>
-
-        <div class="settingrow">
-            <select id="kitmenu">
-                <option value="1539" selected>1539</option>
-                <option value="mach">mach</option>
-                <option value="alb">alb</option>
-                <option value="daft">daft</option>
-                <option value="threat">threat</option>
-            </select>
-            <div class="bpmcontainercol">
-                <div style="width:25%">
-                    <div class="sliderlabel" id="bpmlabel">154 BPM</div>
-    
-                    <div class="sliderlabel" id="swinglabel">0% swing</div>
-    
-                    <div class="sliderlabel" id="volumelabel">100% volume</div>
-                </div>
-                <div style="width:75%">
-                    <input type="range" min="20" max="250" value="154" id="bpmslider" class="slider">
-        
-                    <input type="range" min="0" max="100" value="0" id="swingslider" class="slider">
-        
-                    <input type="range" min="0" max="100" value="100" id="volumeslider" class="slider">
-                </div>
-            </div>
-        </div>
-
-        <div class="bottom-bar">
-            <span>By <a href="https://github.com/tlandart">tlandart</a> using Javascript.</span>
-        </div>
-
-    </body>
-    <script src="app.js"></script>
+    <footer>
+      <a href="/credits.html">[credits]</a>
+    </footer>
+  </body>
 </html>

@@ -1,0 +1,25 @@
+.panel {
+  border: white solid 1px;
+  border-radius: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition-duration: 300ms;
+}
+
+.panel:hover {
+  background: #573500;
+  outline: 3px dotted white;
+}
+
+.panel h1 {
+  background: #050505;
+  border-bottom: white solid 1px;
+  font-size: 20px;
+  margin: 0px;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
