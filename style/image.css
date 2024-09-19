@@ -17,6 +17,10 @@
   margin-top: 0px;
 }
 
+#current_image {
+  max-width: 100%;
+}
+
 #image_form {
   display: none;
   flex-direction: column;

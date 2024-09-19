@@ -1,1 +1,1 @@
-mywebapplication.example.com
+https://tlandart.github.io/
